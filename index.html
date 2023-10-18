@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Front-end Test</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+	</head>
+	<body>
+
+	<!-- Edit this html file as needed. -->
+	<div class="editable_box" id="editable_box_widget_edit">
+		<div class="editable_group ">
+			<h3>1 Start your widget</h3>
+			
+			<div class="editable" field="element">
+				<label>Data Source:</label>
+				<input placeholder="Search a page from where to grab the data" />
+			</div>
+		
+		</div>
+		<div class="editable_group">
+			<h3>2 Setup your widget</h3>
+			
+			<div class="editable" field="Name">
+				<label >Widget title:</label>
+				<input type="text" name="Name" placeholder="My super title Leaderboard ACF" />
+				<button >Save</button>
+			</div>
+			
+			<div class="editable" field="ranking_type">
+				<label>Rank by:</label>
+				<select name="ranking_type">
+					<option value="Final" selected >Number of Final Tables</option>
+					<option value="EARNINGS">Earnings</option>
+					<option value="ITM">Number of ITM</option>
+					<option value="WIN">Number of 1st place</option>
+				</select>
+			</div>
+
+			<div class="editable" field="period">
+				<label>Timeline :</label>
+				<select name="period">
+					<option value="ALL">All Timeline</option>
+					<option>2023</option><option>2022</option>
+					<option>2021</option><option>2020</option>
+					<option>2019</option>
+				</select>
+			</div>
+
+			<!-- useless in this test
+				
+			<div class="editable" field="limit">
+				<label>List size:</label>
+				<select name="limit"><option value="1">1</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option></select>
+			</div> -->
+		
+		</div>
+		
+		<div class="editable_group line_of_2 ">
+			<h3>3 Customize your widget</h3>
+
+			<!-- useless in this test
+
+			<div class="editable" field="lang">
+				<label>Language:</label>
+				<select name="lang"><option value="en">English</option><option value="fr">Français</option></select>
+			</div> -->
+
+			<div class="editable" field="size">
+				<label>Widget size</label>
+				<input type="text" name="size" placeholder="Write the size of the widget" />
+				<button>Save</button>
+			</div>
+
+			<div class="editable" field="colors">
+				<label>Color Scheme</label>
+				<select name="colors">
+					<option value="0">Light</option>
+					<option value="1" selected>Dark</option>
+				</select>
+
+			</div>
+
+			
+			<!-- useless in this test
+
+			<div class="editable" field="https">
+				<label>Link in HTTPS</label>
+				<select name="https"><option value="0">No</option><option value="1">Yes</option></select>
+			</div> -->
+
+		</div>
+		
+	</div>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	// if you have time for some JS, do it here.
+	var saving = {};
+	$(function() {
+		$('.editable_box button').click(function() {
+			//show it's saving
+			$(this).after( imgs.load );
+			// save
+			saving['need_good_name'] = 'need good value';
+			console.log(saving);
+			// emulates a slow save
+			 setTimeout(function() {
+			 	imgs.load.replaceWith( imgs.saved );
+			 }, 1500);
+			setTimeout(function() {
+				$("#saved").remove();
+			}, 5000);
+		});
+		// image disappear after 3 seconds
+		$('.editable_box select').change(function() {
+			// todo, same as button click... WITHOUT COPY-PASTING ALL CODE.
+			$(this).after( imgs.load );
+			// save
+			saving['need_good_name'] = 'need good value';
+			console.log(saving);
+			// emulates a slow save
+			 setTimeout(function() {
+			 	imgs.load.replaceWith( imgs.saved );
+			 }, 1500);
+			setTimeout(function() {
+				$("#saved").remove();
+			}, 5000);
+
+		});
+		var imgs = {
+			'load': $('<img id="load" src="loading.gif" />'),
+			'saved': $('<img id="saved" src="saved.png" />')
+		};
+	});
+	</script>
+
+	</body>
+</html>

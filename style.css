@@ -1,0 +1,130 @@
+/** Edit this css file as needed. **/
+
+.editable_box {
+	display: grid;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	max-width: 800px;
+	min-width: 300px;
+}
+
+h3{
+	background-color: #cfd3da;
+	margin: 0px;
+	padding: 5px 0px 10px 10px;
+	grid-area: h3;
+}
+
+label{
+	font-size: 0.875rem;
+	padding: 10px 0px 10px 0px;
+	grid-area: label;
+}
+
+input, select {
+	
+	line-height: 190%;
+	margin-bottom: 25px;
+	padding: 5px 0px 5px 10px;
+	border-radius: 3px;
+	/* issue with border in input text field*/
+      	border:solid 1px #ccc;
+}
+
+select {
+	display: block !important;
+	appearance: none;
+  	/*  safari  */
+  	-webkit-appearance: none;
+	width: 100%;
+	grid-area: select;
+}
+
+#editable_box_widget_edit {}
+
+.editable_group {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border: solid 1px #cfd3da;
+	font:18px "Arial";
+	color: #333333;
+
+}
+
+.editable{
+	margin: 0px 25px 0px 25px;
+	display: grid;
+	grid-template-areas: 
+	"label label label"
+	"input input button"
+	"select select select"
+	;
+} 
+img {
+	grid-area: img;
+}
+input {
+	grid-area: input;
+	margin-right: 10px;
+}
+
+/* Media queries */
+@media (500px <= width) {
+	.line_of_2 {
+		display: grid;
+		grid-template-areas: "h3 h3"
+		"input select"
+		"button button";
+	}
+
+	.editable_group{
+		margin-bottom: 3vh;
+	}
+
+}
+
+@media ( max-width :400px) {
+	.editable_group{
+		margin-bottom: 1vh;
+	}
+	input {
+		margin-bottom: 1vh;
+	}
+}
+
+
+
+
+/* The save button, already done for your convenience. */
+.editable button {
+	display: inline;
+	background-color: #58647c;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#69758d), to(#58647c));
+ 	background-image: -webkit-linear-gradient(top, #69758d, #58647c);
+ 	background-image: -moz-linear-gradient(top, #69758d, #58647c);
+ 	background-image: -ms-linear-gradient(top, #69758d, #58647c);
+ 	background-image: -o-linear-gradient(top, #69758d, #58647c);
+ 	background-image: linear-gradient(to bottom, #69758d, #58647c);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#69758d, endColorstr=#58647c);
+	color:white;
+	display:inline-block;
+	vertical-align:middle;
+	line-height:16px;
+	font-size:12px;
+	font-weight: normal;
+	text-decoration: none;
+	padding: 5px 10px;
+	border:0;
+	margin:0 2px;
+	border-radius: 3px;
+	cursor:pointer;
+	white-space: nowrap;
+	height: 37px;
+	grid-area: button;
+}
+.editable button:hover  {
+	background: #69758d;
+}
+
+
